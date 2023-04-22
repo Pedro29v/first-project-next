@@ -3,18 +3,11 @@ import Link from "next/link";
 
 function Navigations() {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/">Algun lugar</Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav className="bg-secondary flex flex-row items-center justify-center gap-6 p-4 text-white font-bold mb-12">
+      <Link href="/about">About</Link>
+
+      <Link href="/">Algun lugar</Link>
+    </nav>
   );
 }
 
