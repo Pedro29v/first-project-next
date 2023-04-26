@@ -1,12 +1,17 @@
+import Button from "@/components/Button";
+import Content from "@/components/Content";
+
 async function fetchData() {
-  const resp = await fetch("https://api.chucknorris.io/jokes/random");
+  const resp = await fetch("https://api.chucknorris.io/jokes/random", {
+    cache: "no-store",
+  });
   const data = await resp.json();
   return data;
 }
 
 async function IndexPage() {
   const res = await fetchData();
-  console.log(res);
+
   return (
     <div>
       <img
@@ -15,12 +20,10 @@ async function IndexPage() {
         className="m-auto mb-10 h-[20rem]"
       ></img>
 
-      <div className="m-auto w-[70%]">{JSON.stringify(res.value)}</div>
+      <Content res={res} />
 
       <div className="flex items-center justify-center">
-        <button className=" w-[6rem] p-2 bg-secondary mt-4 hover:w-[7rem] ">
-          Retry
-        </button>
+        <Button />
       </div>
     </div>
   );
