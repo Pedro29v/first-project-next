@@ -1,13 +1,12 @@
 import Button from "@/components/Button";
 import Content from "@/components/Content";
 
-async function fetchData() {
-  const resp = await fetch("https://api.chucknorris.io/jokes/random", {
-    cache: "no-store",
-  });
-  const data = await resp.json();
-  return data;
-}
+const fetchData = async () => {
+  const res = await fetch("https://api.chucknorris.io/jokes/random");
+  const joke = await res.json();
+
+  return joke;
+};
 
 async function IndexPage() {
   const res = await fetchData();
